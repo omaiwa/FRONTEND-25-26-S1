@@ -16,7 +16,6 @@ header {
 a {
     color: rgb(0, 0, 0);
     text-decoration: none;
-    margin-left: 15px;
 }
 
 .container {
@@ -50,4 +49,21 @@ input, select, button, textarea {
 img {
     max-width: 100%;
     border-radius: 10px;
+}
+
+a.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #457ab6;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
 }

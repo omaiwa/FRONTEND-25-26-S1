@@ -6,11 +6,11 @@ function render(data) {
         div.className = "card";
         div.innerHTML = `
             <h3>${item.name}</h3>
-            <p>Type: ${item.type}</p>
-            <p>Location: ${item.location}</p>
+            <p>Type: ${item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
+            <p>Location: ${item.location.charAt(0).toUpperCase() + item.location.slice(1)}</p>
             <p>Price: $${item.price}/month</p>
             <img src="${item.img}" alt="${item.name}"><br>
-            <a href="property.html?id=${item.id}">View Property</a>
+            <a class="button" href="property.html?id=${item.id}">View Property</a>
         `;
         results.appendChild(div);
     });
@@ -19,9 +19,11 @@ function render(data) {
 function filterSearch() {
     const type = typeFilter.value;
     const maxPrice = +maxPriceFilter.value;
+    const location = locationFilter.value;
 
     const filtered = properties.filter(item => {
-        return (type === "" || item.type === type) && (maxPrice === 0 || item.price <= maxPrice);
+        return (type === "" || item.type === type) && (maxPrice === 0 || item.price <= maxPrice) && 
+        (location === "" || item.location === location);
     });
 
     render(filtered);
