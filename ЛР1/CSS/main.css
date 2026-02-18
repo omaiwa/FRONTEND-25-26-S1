@@ -67,3 +67,72 @@ a.button {
     text-decoration: none;
     margin-top: 10px;
 }
+
+.chat-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.chat-window {
+    width: 400px;
+    height: 500px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.chat-message {
+    margin-bottom: 8px;
+}
+
+.chat-message.user {
+    text-align: right;
+}
+
+.chat-message.system {
+    color: gray;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+}
+
+.chat-input button {
+    padding: 8px 12px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
