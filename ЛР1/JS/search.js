@@ -1,3 +1,19 @@
+const API_URL = "http://localhost:3000/properties";
+
+let properties = [];
+
+async function loadProperties() {
+    try {
+        const response = await axios.get(API_URL);
+        properties = response.data;
+        render(properties);
+    } catch (error) {
+        console.error("Error loading properties:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadProperties);
+
 function render(data) {
     results.innerHTML = '';
 
