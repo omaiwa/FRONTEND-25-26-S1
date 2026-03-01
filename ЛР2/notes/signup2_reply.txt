@@ -1,0 +1,9 @@
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlZUBtYWlsLmNvbSIsImlhdCI6MTc3MjM5MDE5OCwiZXhwIjoxNzcyMzkzNzk4LCJzdWIiOiIyIn0.BRBjOjYsqkXkKtx4p_XnriAdhWJFlWEbT3lk_gC_-cs",
+  "user": {
+    "email": "lee@mail.com",
+    "firstName": "Lee",
+    "lastName": "Madden",
+    "id": 2
+  }
+}

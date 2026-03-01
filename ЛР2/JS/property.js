@@ -33,6 +33,7 @@ function rent() {
     let rented = JSON.parse(localStorage.getItem("rented")) || [];
     rented.push(property);
     localStorage.setItem("rented", JSON.stringify(rented));
+    addRentalToHistory(property);
     alert("You have rented this property!");
     location.reload();
 }

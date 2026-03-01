@@ -4,15 +4,23 @@ let properties = [];
 
 async function loadProperties() {
     try {
-        const response = await axios.get(API_URL);
+        const response = await axios.get(API_URL, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.accessToken}`
+            }
+        });
         properties = response.data;
+        localStorage.setItem("properties", JSON.stringify(properties));
         render(properties);
     } catch (error) {
+        alert("Error!");
         console.error("Error loading properties:", error);
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadProperties);
+document.addEventListener('DOMContentLoaded', () => {
+    loadProperties()
+})
 
 function render(data) {
     results.innerHTML = '';
@@ -38,8 +46,8 @@ function filterSearch() {
     const location = locationFilter.value;
 
     const filtered = properties.filter(item => {
-        return (type === "" || item.type === type) && (maxPrice === 0 || item.price <= maxPrice) && 
-        (location === "" || item.location === location);
+        return (type === "" || item.type === type) && (maxPrice === 0 || item.price <= maxPrice) &&
+            (location === "" || item.location === location);
     });
 
     render(filtered);

@@ -1,11 +1,12 @@
+const properties = JSON.parse(localStorage.getItem("properties")) || [];
 const rentedProperties = JSON.parse(localStorage.getItem("rented")) || [];
 const availableProperties = properties.filter(property => !rentedProperties.some(rented => rented.id === property.id));
 
-function renderProperties(containerId, properties) {
+function renderProperties(containerId, prop) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
 
-    properties.forEach(item => {
+    prop.forEach(item => {
         const div = document.createElement('div');
         div.className = "card";
         div.innerHTML = `

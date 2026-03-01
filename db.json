@@ -6,6 +6,34 @@
       "firstName": "Ben",
       "lastName": "Dover",
       "id": 1
+    },
+    {
+      "email": "lee@mail.com",
+      "password": "$2a$10$kwTcRL.9Ni8LfdyZCLxVyO1uNPBTegF/6IPcFVIXyDIYUuESUky8i",
+      "firstName": "Lee",
+      "lastName": "Madden",
+      "id": 2
+    },
+    {
+      "email": "roy@mail.com",
+      "password": "$2a$10$Hwmw35a./Ox239seBFdPO..j9HKcYL1owI1XfhllQjm1buAZQ2hDK",
+      "firstName": "Ray",
+      "lastName": "Boone",
+      "id": 3
+    },
+    {
+      "email": "max@mail.com",
+      "password": "$2a$10$DScOjMQquv7BsaY9QQ5ea.NVYS0Zv7XTtu//hWohnyy4L4vdmdgW.",
+      "firstName": "max",
+      "lastName": "raxx",
+      "id": 4
+    },
+    {
+      "email": "ree@mail.com",
+      "password": "$2a$10$oeCmWf8ACe1vhKmFMTiGbOtNu8TyzMW2wcOHVNm0RxQLc6rE0TgKK",
+      "firstName": "orley",
+      "lastName": "hartt",
+      "id": 5
     }
   ],
   "properties": [

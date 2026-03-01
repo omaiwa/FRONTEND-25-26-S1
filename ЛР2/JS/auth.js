@@ -32,6 +32,7 @@ function login(e) {
 function logout() {
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("currentUser");
+    localStorage.removeItem('accessToken');
     alert("You have been logged out.");
     location.href = "index.html";
 }

@@ -1,6 +1,6 @@
-(function(){
+(function () {
     function getCurrentUserEmail() {
-        try { return JSON.parse(localStorage.getItem('currentUser')) || null; } catch(e) { return null; }
+        try { return JSON.parse(localStorage.getItem('currentUser')) || null; } catch (e) { return null; }
     }
 
     function addHistoryEntry(entry) {
@@ -15,7 +15,7 @@
             propertyId: property.id,
             propertyName: property.name,
             timestamp: new Date().toISOString(),
-            user: getCurrentUserEmail()
+            user: JSON.parse(localStorage.getItem('currentUser'))
         };
         addHistoryEntry(entry);
     }
@@ -26,7 +26,7 @@
             propertyId: property.id,
             propertyName: property.name,
             timestamp: new Date().toISOString(),
-            user: getCurrentUserEmail(),
+            user: JSON.parse(localStorage.getItem('currentUser')),
             message: messageText
         };
         addHistoryEntry(entry);
@@ -34,8 +34,8 @@
 
     function escapeHtml(str) {
         if (!str) return '';
-        return String(str).replace(/[&<>"']/g, function(m){
-            return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m]);
+        return String(str).replace(/[&<>"']/g, function (m) {
+            return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', '\'': '&#39;' }[m]);
         });
     }
 
@@ -62,8 +62,8 @@
             }
 
             if (h.type === 'message' && h.user === getCurrentUserEmail()) {
-                //return `<div class="history-item"><strong>Message:</strong> ${escapeHtml(h.propertyName)} — "${escapeHtml(h.message)}" — <em>${escapeHtml(h.user || '')}</em> — <small>${time}</small></div>`; 
-                return '';
+                //return `<div class="history-item"><strong>Message:</strong> ${escapeHtml(h.propertyName)} — "${escapeHtml(h.message)}" — <em>${escapeHtml(h.user || '')}</em> — <small>${time}</small></div>`;
+                //return '';
             }
             return '';
             //return `<div class="history-item">${escapeHtml(JSON.stringify(h))}</div>`;
@@ -73,7 +73,6 @@
     window.addRentalToHistory = addRentalToHistory;
     window.addMessageToHistory = addMessageToHistory;
     window.renderHistory = renderHistory;
-    window.showHistory = function() { renderHistory('historyContainer'); };
-    window.addRentalToHistory = addRentalToHistory;
+    window.showHistory = function () { renderHistory('historyContainer'); };
     window.escapeHtml = escapeHtml;
 })();
