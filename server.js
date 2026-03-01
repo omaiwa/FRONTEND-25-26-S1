@@ -3,7 +3,6 @@ const auth = require('json-server-auth');
 const app = jsonServer.create();
 const router = jsonServer.router('db.json');
 
-// This binds the auth logic to the app
 app.db = router.db;
 
 const middlewares = jsonServer.defaults();
