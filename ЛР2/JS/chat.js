@@ -48,10 +48,8 @@ function sendMessage() {
     const text = input.value.trim();
     if (!text) return;
 
-    // Save user message
     addMessageToHistory(currentProperty, text);
 
-    // Simulated system reply
     setTimeout(() => {
         const systemEntry = {
             id: currentProperty.id,

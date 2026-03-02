@@ -43,6 +43,13 @@ textarea {
     width: auto;
 }
 
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #000000;
+}
+
 .close-chat-btn {
     height: 20px;
     aspect-ratio: 1 / 1;
@@ -179,6 +186,10 @@ body.dark-theme .card {
     background: #1e1e1e;
     border: 1px solid #333;
     color: #e0e0e0;
+}
+
+body.dark-theme .icon {
+    stroke: #bb86fc;
 }
 
 body.dark-theme a {
