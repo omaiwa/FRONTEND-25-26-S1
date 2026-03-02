@@ -1,9 +1,0 @@
-For the app to work via vue you need two seperate consoles.
-
-In terminal 1 navigate to \FRONTEND-25-26-S1\notes_example> for the vue project and start via
-npx json-server db.json
-
-In terminal 2 navigate to \FRONTEND-25-26-S1\vue-project1> for the vue project and start via
-npm start
-
-Then go to link in vue console (http://localhost:8080/)
