@@ -26,10 +26,23 @@ a {
     border-radius: 10px;
 }
 
-input, select, button, textarea {
+input,
+select,
+button,
+textarea {
     padding: 8px;
     margin: 6px 0;
     width: auto;
+}
+
+.close-chat-btn {
+    height: 20px;
+    aspect-ratio: 1 / 1;
+    border: none;
+    background: white;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .card {
@@ -74,14 +87,15 @@ a.button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     z-index: 999;
 }
 
 .chat-window {
+    margin-top: 80px;
     width: 400px;
     height: 500px;
     background: #fff;
@@ -135,4 +149,69 @@ a.button {
     background: #333;
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .chat-window {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 15px;
+        padding: 15px;
+        border-radius: 6px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    a.logo {
+        font-size: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .chat-window {
+        margin-left: 15px;
+        margin-right: 15px;
+        height: 50vh;
+    }
+
+    .chat-messages {
+        font-size: 14px;
+    }
+
+    .chat-input input {
+        font-size: 14px;
+    }
 }

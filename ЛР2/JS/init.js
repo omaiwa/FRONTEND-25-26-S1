@@ -1,10 +1,8 @@
 header.innerHTML = `
-    <header>
         <a href="index.html" class="logo">Rentussy</a>
             <div>
             ${localStorage.getItem("accessToken") ? '<a href="profile.html" class="profile-icon">Profile</a>' : '<a href="server_auth.html">Login</a> <a href="server_register.html">Register</a>'}
             </div>
-    </header>
 `
 
 function chat_on() {

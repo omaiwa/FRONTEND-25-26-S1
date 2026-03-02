@@ -1,3 +1,7 @@
-[x] link register page to server
-[x] link login page to server
-[x] fix history - do register first
+[x] семантика
+[x] стилизация
+[x] контраст
+[x] альтернативный текст
+[x] кроссбраузерность
+[x] адаптивность
+[x] управление с клавы
