@@ -1,0 +1,29 @@
+[x] designate components
+
+[]Home
+    [x] port html
+    [x] port dependencies
+    [x] check logic
+    [] get api/properties.js working
+
+[]Login
+    [] port html
+    [] port dependencies
+    [] check logic
+
+[]Register
+    [] port html
+    [] port dependencies
+    [] check logic
+
+[]Profile
+    [] port html
+    [] port dependencies
+    [] check logic
+
+[]Property
+    [] port html
+    [] port dependencies
+    [] check logic
+
+[]Debug
