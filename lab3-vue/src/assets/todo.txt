@@ -1,6 +1,6 @@
 [x] designate components
 
-[]Home
+[x]Home
     [x] port html
     [x] port dependencies
     [x] check logic
@@ -16,17 +16,24 @@
     [x] port html
     [x] port dependencies
     [x] check logic
-    [] store user better?
-    [] update user for history
+    [x] store user better?
+    [x] update user for history
 
-[]Register
-    [] port html
-    [] port dependencies
-    [] check logic
+[x]Register
+    [x] port html
+    [x] port dependencies
+    [x] check logic
 
-[]Profile
-    [] port html
-    [] port dependencies
-    [] check logic
+[x]Profile
+    [x] port html
+    [x] port dependencies
+    [x] check logic
 
-[]Debug
+[] Debug/refine
+    [] add some layouts?
+    [] move search filters to seperate component
+    [x] make header refresh after login
+    [] make dark mode button acessible by keyboard tab
+    [] fix stores/properties/getRented, getAvailable
+    [] remove unnecesssary localStorage mentions
+    [x] remove unnecesssary server calls

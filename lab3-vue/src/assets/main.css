@@ -13,9 +13,10 @@ header {
     align-items: center;
 }
 
-h3 {
-     font-size: 30px;
+h2 {
+    margin-top: 8px;
 }
+
 
 p {
     margin-bottom: 5px;
@@ -239,7 +240,7 @@ body.dark-theme input {
 
 @media (max-width: 1024px) {
     .container {
-        margin: 20px;
+        margin: 20px auto;
         padding: 20px;
     }
 
@@ -265,7 +266,7 @@ body.dark-theme input {
 
     .container {
         max-width: 600px;
-        margin: 15px;
+        margin: 15px auto;
         padding: 15px;
         border-radius: 6px;
     }

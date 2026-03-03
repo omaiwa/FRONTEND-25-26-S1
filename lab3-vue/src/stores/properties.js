@@ -9,6 +9,7 @@ const usePropertiesStore = defineStore('properties', {
 
     actions: {
         async loadProperties() {
+
             if (this.loaded) return
 
             const response = await propertiesApi.getAll()
@@ -17,7 +18,19 @@ const usePropertiesStore = defineStore('properties', {
             this.loaded = true
 
             return response
+        },
+
+        getRentedProperties() {
+            const rented = JSON.parse(localStorage.getItem('rented')) || []
+            return this.properties.filter(p => rented.some(r => r.id === p.id))
+        },
+
+        getAvailableProperties() {
+            const rented = JSON.parse(localStorage.getItem('rented')) || []
+            return this.properties.filter(p => !rented.some(r => r.id === p.id))
         }
+
+        //fix this later ???
     },
 
     persist: true

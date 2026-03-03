@@ -3,11 +3,12 @@
     <router-link to="/" class="logo">Rentussy</router-link>
 
     <div class="navbar">
-      <svg class="icon" @click="toggleTheme">
+      <svg class="icon" role="button" tabindex="0" @click="toggleTheme" @keydown.enter.prevent="toggleTheme"
+        @keydown.space.prevent="toggleTheme">
         <use :xlink:href="iconHref"></use>
       </svg>
 
-      <template v-if="isLoggedIn">
+      <template v-if="authStore.user">
         <router-link to="/profile" class="profile-icon">
           Profile
         </router-link>
@@ -22,9 +23,10 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import useAuthStore from '@/stores/auth'
+import { computed, onMounted, ref, watch } from 'vue'
 
-const isLoggedIn = ref(!!localStorage.getItem("accessToken"))
+const authStore = useAuthStore()
 const darkTheme = ref(localStorage.getItem("darkTheme") === "true")
 
 onMounted(() => {
@@ -43,5 +45,12 @@ const iconHref = computed(() =>
   darkTheme.value
     ? "/sprite.svg#sun"
     : "/sprite.svg#moon"
+)
+
+watch(
+  () => authStore.user,
+  (newVal) => {
+    console.log("User state changed:", newVal)
+  }
 )
 </script>

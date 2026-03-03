@@ -10,6 +10,23 @@ const useAuthStore = defineStore(
             JSON.parse(localStorage.getItem("user")) || null
         )
 
+        const signup = async (credentials) => {
+            const response = await authApi.signup(credentials)
+            const { accessToken, user: userData } = response.data
+
+            token.value = accessToken
+            user.value = userData
+
+            localStorage.setItem('accessToken', accessToken)
+            localStorage.setItem('user', JSON.stringify(userData))
+            localStorage.setItem('currentUser', JSON.stringify(userData.email))
+            localStorage.setItem('rented', JSON.stringify([]))
+
+            return response
+        }
+
+
+
         const login = async (credentials) => {
             const response = await authApi.login(credentials)
 
@@ -35,6 +52,7 @@ const useAuthStore = defineStore(
         return {
             token,
             user,
+            signup,
             login,
             logout
         }
