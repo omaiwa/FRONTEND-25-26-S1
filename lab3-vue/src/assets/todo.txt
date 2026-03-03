@@ -4,12 +4,20 @@
     [x] port html
     [x] port dependencies
     [x] check logic
-    [] get api/properties.js working
+    [x] get api/properties.js working
 
-[]Login
-    [] port html
-    [] port dependencies
-    [] check logic
+[x]Property
+    [x] port html
+    [x] port chat
+    [x] port dependencies
+    [x] check logic
+
+[x]Login
+    [x] port html
+    [x] port dependencies
+    [x] check logic
+    [] store user better?
+    [] update user for history
 
 []Register
     [] port html
@@ -17,11 +25,6 @@
     [] check logic
 
 []Profile
-    [] port html
-    [] port dependencies
-    [] check logic
-
-[]Property
     [] port html
     [] port dependencies
     [] check logic

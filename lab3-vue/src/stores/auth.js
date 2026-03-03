@@ -1,18 +1,47 @@
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { authApi } from "@/api"
+import { defineStore } from "pinia"
+import { ref } from "vue"
 
-export const useAuthStore = defineStore('auth', () => {
-    const token = ref(localStorage.getItem("accessToken"))
+const useAuthStore = defineStore(
+    "auth",
+    () => {
+        const token = ref(localStorage.getItem("accessToken") || null)
+        const user = ref(
+            JSON.parse(localStorage.getItem("user")) || null
+        )
 
-    const setToken = (newToken) => {
-        token.value = newToken
-        localStorage.setItem("accessToken", newToken)
+        const login = async (credentials) => {
+            const response = await authApi.login(credentials)
+
+            const { accessToken, user: userData } = response.data
+
+            token.value = accessToken
+            user.value = userData
+
+            localStorage.setItem("accessToken", accessToken)
+            localStorage.setItem("user", JSON.stringify(userData))
+
+            return response
+        }
+
+        const logout = () => {
+            token.value = null
+            user.value = null
+
+            localStorage.removeItem("accessToken")
+            localStorage.removeItem("user")
+        }
+
+        return {
+            token,
+            user,
+            login,
+            logout
+        }
+    },
+    {
+        persist: true
     }
+)
 
-    const logout = () => {
-        token.value = null
-        localStorage.removeItem("accessToken")
-    }
-
-    return { token, setToken, logout }
-})
+export default useAuthStore

@@ -1,13 +1,14 @@
-export default class PropertiesApi {
-  constructor(axios) {
-    this.axios = axios
-  }
+class PropertiesApi {
+    constructor(instance) {
+        this.API = instance
+    }
 
-  getAll() {
-    return this.axios.get("/properties")
-  }
-
-  getById(id) {
-    return this.axios.get(`/properties/${id}`)
-  }
+    getAll = async () => {
+        return this.API({
+            method: 'GET',
+            url: '/properties'
+        })
+    }
 }
+
+export default PropertiesApi
