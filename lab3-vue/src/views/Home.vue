@@ -2,20 +2,20 @@
   <div class="container">
     <h2>Search</h2>
 
-    <select v-model="typeFilter">
+    <select v-model="typeFilter" id="typeFilter">
       <option value="">All types</option>
       <option value="apartment">Apartment</option>
       <option value="house">House</option>
     </select>
 
-    <select v-model="locationFilter">
+    <select v-model="locationFilter" id="locationFilter">
       <option value="">All locations</option>
       <option value="england">England</option>
       <option value="wales">Wales</option>
       <option value="scotland">Scotland</option>
     </select>
 
-    <input type="number" v-model.number="maxPriceFilter" placeholder="Max price">
+    <input type="number" id="maxPrice" v-model.number="maxPriceFilter" placeholder="Max price">
 
     <div class="grid">
       <PropertyCard v-for="item in filteredProperties" :key="item.id" :property="item" />

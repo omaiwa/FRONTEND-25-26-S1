@@ -22,6 +22,7 @@
 
 <script setup>
 import ChatModal from "@/components/Chat.vue"
+import { useHistory } from '@/composables/useHistory'
 import useAuthStore from "@/stores/auth"
 import usePropertiesStore from "@/stores/properties"
 import { computed, onMounted, ref } from "vue"
@@ -30,17 +31,21 @@ import { useRoute } from "vue-router"
 const route = useRoute()
 const propertiesStore = usePropertiesStore()
 const chatOpen = ref(false)
+const authStore = useAuthStore()
+const { history, addRent, addMessage } = useHistory()
+
 
 onMounted(async () => {
     await propertiesStore.loadProperties()
 })
+
+const currentUserEmail = computed(() => authStore.user?.email || null)
 
 const property = computed(() =>
     propertiesStore.properties.find(
         (p) => p.id == route.params.id
     )
 )
-
 
 const rented = ref(JSON.parse(localStorage.getItem("rented")) || [])
 
@@ -49,34 +54,19 @@ const isRented = computed(() =>
 )
 
 function rent() {
+    if (!property.value) return
+
     rented.value.push(property.value)
     localStorage.setItem("rented", JSON.stringify(rented.value))
 
-    addRentalToHistory(property.value)
+    addRent(property.value, currentUserEmail.value)
 
     alert("You have rented this property!")
 }
+
 
 function capitalized(str) {
     return str?.charAt(0).toUpperCase() + str?.slice(1)
 }
 
-function getCurrentUser() {
-    const authStore = useAuthStore()
-    return authStore.user?.email || null;
-}
-
-function addRentalToHistory(property) {
-    const history = JSON.parse(localStorage.getItem("history")) || []
-
-    history.push({
-        type: "rent",
-        propertyId: property.id,
-        propertyName: property.name,
-        timestamp: new Date().toISOString(),
-        user: getCurrentUser()
-    })
-
-    localStorage.setItem("history", JSON.stringify(history))
-}
 </script>

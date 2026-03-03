@@ -18,7 +18,8 @@
             </div>
 
             <div class="chat-input">
-                <input v-model="newMessage" placeholder="Write a message..." @keyup.enter="sendMessage" />
+                <input id="chatInput" v-model="newMessage" placeholder="Write a message..."
+                    @keyup.enter="sendMessage" />
                 <button @click="sendMessage">Send</button>
             </div>
         </div>

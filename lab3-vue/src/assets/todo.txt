@@ -33,7 +33,9 @@
     [] add some layouts?
     [] move search filters to seperate component
     [x] make header refresh after login
-    [] make dark mode button acessible by keyboard tab
+    [x] make dark mode button acessible by keyboard tab
     [] fix stores/properties/getRented, getAvailable
     [] remove unnecesssary localStorage mentions
+    [x] add composables
+    [x] fix ugly cards
     [x] remove unnecesssary server calls

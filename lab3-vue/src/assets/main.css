@@ -71,11 +71,20 @@ textarea {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     border: 1px solid #ccc;
     background: white;
     border-radius: 10px;
     padding: 15px;
     margin: 10px 0;
+}
+
+.card-footer {
+    padding: 0px;
+    border: 0px;
 }
 
 .grid {
@@ -284,9 +293,7 @@ body.dark-theme input {
         gap: 15px;
     }
 
-    .card {
-        padding: 12px;
-    }
+
 
     .chat-window {
         margin-left: 15px;

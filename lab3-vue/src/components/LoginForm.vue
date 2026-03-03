@@ -1,16 +1,18 @@
 <template>
     <form @submit.prevent="handleLogin">
         <div class="mb-3">
-            <label class="form-label">Email address</label>
-            <input type="email" class="form-control" v-model="email" autocomplete="off" />
+            <label class="form-label">Email address
+                <input id="email" type="email" class="form-control" v-model="email" autocomplete="off" />
+            </label>
             <div class="form-text">
                 We'll never share your email with anyone else.
             </div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" v-model="password" autocomplete="off" />
+            <label class="form-label">Password
+                <input id="password" type="password" class="form-control" v-model="password" autocomplete="off" />
+            </label>
         </div>
 
         <button type="submit" class="btn btn-primary">

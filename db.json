@@ -41,6 +41,13 @@
       "firstName": "zee",
       "lastName": "zee",
       "id": 6
+    },
+    {
+      "email": "1@mail.com",
+      "password": "$2a$10$tAOvNoXciRaFAJT3L4pZGekw3sQ0Y7tTl1kEoo3Sc1DW6Ch.2FElO",
+      "firstName": "max",
+      "lastName": "sux",
+      "id": 7
     }
   ],
   "properties": [

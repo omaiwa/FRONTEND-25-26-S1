@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h2>{{ authStore.user?.email || 'Guest' }}</h2>
+        <h2>{{ auth.user?.email || 'Guest' }}</h2>
         <button @click="logout">Logout</button>
 
         <HistoryContainer :history="history" />
@@ -23,20 +23,19 @@
 </template>
 
 <script setup>
-import useAuthStore from '@/stores/auth'
-import usePropertiesStore from '@/stores/properties'
-import { computed, onMounted, ref } from 'vue'
-
 import HistoryContainer from '@/components/HistoryContainer.vue'
 import PropertyCard from '@/components/PropertyCard.vue'
+import useAuth from '@/composables/useAuth'
+import { useHistory } from '@/composables/useHistory'
+import usePropertiesStore from '@/stores/properties'
+import { computed, onMounted } from 'vue'
 
-const authStore = useAuthStore()
+const auth = useAuth()
 const propertiesStore = usePropertiesStore()
-
-const history = ref(JSON.parse(localStorage.getItem('history')) || [])
+const { history, addRent, addMessage } = useHistory()
 
 const logout = () => {
-    authStore.logout()
+    auth.logout()
     window.location.href = '/'
 }
 
